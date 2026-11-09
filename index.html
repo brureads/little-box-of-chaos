@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Little Box of Chaos</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+      }
+    }
+  </script>
+
+    <script type="module" src="script.js"></script>
+</head>
+
+<body>
+
+    <!-- TELA DE BOAS-VINDAS -->
+    <section class="welcome" id="welcome">
+        <div class="welcome-content">
+            <span class="welcome-decoration">✦ &nbsp; ✧ &nbsp; ✦</span>
+
+            <p class="welcome-label">a little something for you</p>
+
+            <h1 class="welcome-title">
+                little box<br>
+                <em>of chaos.</em>
+            </h1>
+
+            <p class="welcome-description">
+                um presente pequeno, feito com carinho<br>
+                e uma quantidade questionável de caos.
+            </p>
+
+            <button class="start-btn" id="startBtn">
+                open your little surprise
+                <span>↗</span>
+            </button>
+
+            <span class="welcome-footer">
+                made with love, just for fun
+            </span>
+        </div>
+    </section>
+
+    <!-- CAIXINHA 3D -->
+    <main class="experience" id="experience">
+        <h1>little box of chaos</h1>
+
+        <p class="subtitle">
+            made with love (and a little chaos)
+        </p>
+
+        <div id="scene-container"></div>
+
+        <span class="hint" id="hint">
+            clique na tampa para abrir
+        </span>
+    </main>
+
+    <!-- JANELA DOS PRESENTES -->
+    <div class="modal" id="modal" hidden>
+        <div class="modal-content">
+            <button class="close-btn" id="closeModal" aria-label="Fechar">×</button>
+
+            <div class="modal-icon" id="modalIcon"></div>
+            <h2 id="modalTitle"></h2>
+            <p id="modalText"></p>
+
+            <button class="okay-btn" id="okayBtn">
+                obrigada, eu acho
+            </button>
+        </div>
+    </div>
+
+    <!-- CONTROLE DA INTRODUÇÃO -->
+    <script>
+        const startBtn = document.getElementById("startBtn");
+        const welcome = document.getElementById("welcome");
+
+        startBtn.addEventListener("click", () => {
+            welcome.classList.add("hidden");
+        });
+    </script>
+    <div class="secret-final" id="secretFinal" hidden>
+        <div class="secret-final-card">
+            <span class="final-sparkle">✦ ✧ ✦</span>
+
+            <h2>you found all the<br><em>little surprises!</em></h2>
+
+            <p>
+                congratulations, you've officially<br>
+                unlocked all the chaos.
+            </p>
+
+            <small>
+                made with love, a little sarcasm,<br>
+                and questionable decisions.
+            </small>
+
+            <div class="final-actions">
+                <button id="restartBtn">open again ↻</button>
+                <button id="stayBtn">stay here</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("restartBtn").onclick = () => {
+            window.location.reload();
+        };
+
+        document.getElementById("stayBtn").onclick = () => {
+            document.getElementById("secretFinal").hidden = true;
+        };
+    </script>
+</body>
+
+</html>

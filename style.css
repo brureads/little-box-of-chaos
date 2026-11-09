@@ -1,0 +1,360 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #faf7fc;
+  font-family: 'DM Sans', sans-serif;
+  color: #756184;
+}
+
+/* TELA DE BOAS-VINDAS */
+
+.welcome {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: #faf7fc;
+  transition: opacity 0.8s ease,
+              visibility 0.8s ease;
+}
+
+.welcome.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.welcome-content {
+  text-align: center;
+  animation: fadeUp 1s ease both;
+}
+
+.welcome-decoration {
+  display: block;
+  color: #c5a4d9;
+  font-size: 20px;
+  letter-spacing: 15px;
+  margin-bottom: 35px;
+}
+
+.welcome-label {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #b49bc2;
+  margin-bottom: 25px;
+}
+
+.welcome-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(55px, 10vw, 95px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -3px;
+  color: #9474a8;
+}
+
+.welcome-title em {
+  font-weight: 400;
+  color: #c69dcf;
+}
+
+.welcome-description {
+  margin-top: 28px;
+  color: #a18eaa;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.start-btn {
+  margin-top: 40px;
+  padding: 17px 28px;
+  background: #b99ad1;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.start-btn span {
+  margin-left: 15px;
+  font-size: 16px;
+}
+
+.start-btn:hover {
+  background: #a780c5;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px #b99ad155;
+}
+
+.welcome-footer {
+  display: block;
+  margin-top: 55px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #c4b4ca;
+}
+
+/* EXPERIÊNCIA 3D */
+
+.experience {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.experience h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 400;
+  color: #9474a8;
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #b4a2bd;
+}
+
+#scene-container {
+  width: 100%;
+  max-width: 650px;
+  height: 440px;
+  cursor: grab;
+  touch-action: none;
+}
+
+#scene-container:active {
+  cursor: grabbing;
+}
+
+.hint {
+  font-size: 12px;
+  color: #b4a2bd;
+  letter-spacing: 1px;
+}
+
+/* JANELAS DOS PRESENTES */
+
+.modal[hidden] {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(77, 54, 90, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 370px;
+  padding: 42px 30px 30px;
+  border-radius: 24px;
+  background: #fffafd;
+  text-align: center;
+  box-shadow: 0 20px 60px #76578530;
+  animation: fadeUp 0.35s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  border: none;
+  background: transparent;
+  color: #a48bad;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.modal-icon {
+  font-size: 40px;
+  margin-bottom: 18px;
+}
+
+.modal-content h2 {
+  font-size: 23px;
+  font-weight: 500;
+  color: #8d6aa2;
+  margin-bottom: 14px;
+}
+
+.modal-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #756184;
+}
+
+.okay-btn {
+  margin-top: 25px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 30px;
+  background: #d7b5e9;
+  color: #553b67;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.okay-btn:hover {
+  background: #c7a0de;
+  transform: translateY(-2px);
+}
+
+/* ANIMAÇÕES */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CELULARES */
+
+@media (max-width: 600px) {
+  .welcome-title {
+    font-size: 58px;
+  }
+
+  .welcome-description {
+    font-size: 12px;
+  }
+
+  #scene-container {
+    height: 380px;
+  }
+
+  .welcome-decoration {
+    letter-spacing: 8px;
+  }
+}
+.secret-final[hidden] {
+  display: none;
+}
+
+.secret-final {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(250, 247, 252, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.secret-final-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 55px 35px;
+  border-radius: 28px;
+  background: #fffafd;
+  text-align: center;
+  box-shadow: 0 20px 65px #a88bb52b;
+  animation: fadeUp 0.6s ease;
+}
+
+.final-sparkle {
+  display: block;
+  margin-bottom: 30px;
+  color: #c6a1d8;
+  letter-spacing: 12px;
+}
+
+.secret-final-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(30px, 6vw, 42px);
+  font-weight: 400;
+  line-height: 1.3;
+  color: #9474a8;
+}
+
+.secret-final-card h2 em {
+  color: #c69dcf;
+  font-weight: 400;
+}
+
+.secret-final-card p {
+  margin-top: 25px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #937e9f;
+}
+
+.secret-final-card small {
+  display: block;
+  margin-top: 25px;
+  color: #baa9c2;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.final-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 35px;
+}
+
+.final-actions button {
+  padding: 13px 22px;
+  border-radius: 30px;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+#restartBtn {
+  border: none;
+  background: #b99ad1;
+  color: white;
+}
+
+#stayBtn {
+  border: 1px solid #d9c7e2;
+  background: transparent;
+  color: #9675a9;
+}
+
+.final-actions button:hover {
+  transform: translateY(-3px);
+}
